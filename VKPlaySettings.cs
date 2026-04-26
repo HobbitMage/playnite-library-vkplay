@@ -6,25 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VKPlay
+namespace VKPlayLibrary
 {
     public class VKPlaySettings : ObservableObject
     {
-        private string option1 = string.Empty;
-        private bool option2 = false;
-        private bool optionThatWontBeSaved = false;
+        private bool importInstalledGames = false;
+        private bool connectAccount = false;
+        //private bool optionThatWontBeSaved = false;
 
-        public string Option1 { get => option1; set => SetValue(ref option1, value); }
-        public bool Option2 { get => option2; set => SetValue(ref option2, value); }
+        public bool ImportInstalledGames { get => importInstalledGames; set => SetValue(ref importInstalledGames, value); }
+        public bool ConnectAccount { get => connectAccount; set => SetValue(ref connectAccount, value); }
         // Playnite serializes settings object to a JSON object and saves it as text file.
         // If you want to exclude some property from being saved then use `JsonDontSerialize` ignore attribute.
-        [DontSerialize]
-        public bool OptionThatWontBeSaved { get => optionThatWontBeSaved; set => SetValue(ref optionThatWontBeSaved, value); }
+        //[DontSerialize]
+        //public bool OptionThatWontBeSaved { get => optionThatWontBeSaved; set => SetValue(ref optionThatWontBeSaved, value); }
     }
 
     public class VKPlaySettingsViewModel : ObservableObject, ISettings
     {
-        private readonly VKPlay plugin;
+        private readonly VKPlayLibrary plugin;
         private VKPlaySettings editingClone { get; set; }
 
         private VKPlaySettings settings;
@@ -38,7 +38,7 @@ namespace VKPlay
             }
         }
 
-        public VKPlaySettingsViewModel(VKPlay plugin)
+        public VKPlaySettingsViewModel(VKPlayLibrary plugin)
         {
             // Injecting your plugin instance is required for Save/Load method because Playnite saves data to a location based on what plugin requested the operation.
             this.plugin = plugin;

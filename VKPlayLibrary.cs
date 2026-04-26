@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace VKPlay
+namespace VKPlayLibrary
 {
-    public class VKPlay : LibraryPlugin
+    public class VKPlayLibrary : LibraryPlugin
     {
         private static readonly ILogger logger = LogManager.GetLogger();
 
@@ -19,17 +19,18 @@ namespace VKPlay
         public override Guid Id { get; } = Guid.Parse("f019ed68-2a62-403a-b33d-f91e8529a06e");
 
         // Change to something more appropriate
-        public override string Name => "Custom Library";
+        public override string Name => "VK Play";
 
         // Implementing Client adds ability to open it via special menu in playnite.
         public override LibraryClient Client { get; } = new VKPlayClient();
 
-        public VKPlay(IPlayniteAPI api) : base(api)
+        public VKPlayLibrary(IPlayniteAPI api) : base(api)
         {
             settings = new VKPlaySettingsViewModel(this);
             Properties = new LibraryPluginProperties
             {
-                HasSettings = true
+                HasSettings = true,
+                CanShutdownClient = true
             };
         }
 
