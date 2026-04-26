@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VKPlay
+namespace VKPlayLibrary
 {
     public class VKPlaySettings : ObservableObject
     {
@@ -24,7 +24,7 @@ namespace VKPlay
 
     public class VKPlaySettingsViewModel : ObservableObject, ISettings
     {
-        private readonly VKPlay plugin;
+        private readonly VKPlayLibrary plugin;
         private VKPlaySettings editingClone { get; set; }
 
         private VKPlaySettings settings;
@@ -38,7 +38,7 @@ namespace VKPlay
             }
         }
 
-        public VKPlaySettingsViewModel(VKPlay plugin)
+        public VKPlaySettingsViewModel(VKPlayLibrary plugin)
         {
             // Injecting your plugin instance is required for Save/Load method because Playnite saves data to a location based on what plugin requested the operation.
             this.plugin = plugin;

@@ -1,7 +1,7 @@
 ﻿Id: VKPlay_f019ed68-2a62-403a-b33d-f91e8529a06e
 Name: VK Play Library integration
 Author: HobbitMage
-Version: 0.0.1
+Version: 0.0.2
 Module: VKPlay.dll
 Type: GameLibrary
 Icon: Resources\vkplay-ico.png

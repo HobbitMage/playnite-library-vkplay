@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VKPlay
+namespace VKPlayLibrary
 {
     public partial class VKPlaySettingsView : UserControl
     {
